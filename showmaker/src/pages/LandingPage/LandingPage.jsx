@@ -8,7 +8,7 @@ import { Chatbox } from "./../../components/Chatbox/Chatbox";
 import { Rundwon } from "../../components/Rundown/Rundwon";
 import { Title } from "../../components/Title/Title";
 import data from "../../data/data";
-import { ChatContext, ChatContextProvider } from "../../context/ChatContext";
+import { ChatContext } from "../../context/ChatContext";
 
 
 
@@ -24,7 +24,7 @@ export function LandingPage() {
     }
 
     return (
-        <ChatContextProvider>
+        
         <div className='relative w-full h-lvh'>
 
             <div className='flex flex-row justify-center items-center w-full h-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] fixed'><Header /></div>
@@ -58,6 +58,5 @@ export function LandingPage() {
 
         </div>
 
-     </ChatContextProvider>
     )
 }

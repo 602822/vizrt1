@@ -8,11 +8,9 @@ import { StoryItem } from "../StoryItem/StoryItem";
 
 export function Rundwon() {
 
-  const {items}= useContext(ChatContext);
+  const {items, stories}= useContext(ChatContext);
 
-  const {name,stories} = data;
-
-  // const {items} = stories[0];
+  //const {name,stories} = data;
 
   const story:StoryProp = {
     id: "1",
@@ -20,17 +18,17 @@ export function Rundwon() {
     items: [],
   }
 
-
   return (
     <div>
-    {/* <h1>{name}</h1> */}
-    {/* <Story story={stories[0]}/> */}
-
-    {
-      items?.map(function (item) {
-        return <StoryItem storyItem={item} key={item?.id}/>
-      })
-    }
+      
+        {stories?.map((story) => (
+          <div className='mb-5'>
+          <React.Fragment key={story?.id} >
+            <Story story={story} />
+          </React.Fragment>
+          </div>
+        ))}
+      
     </div>
   )
 }

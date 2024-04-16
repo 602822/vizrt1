@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());  
+app.use(cors());
 
 const port = 3000;
 const { OpenAI } = require("openai");
@@ -43,15 +43,15 @@ async function scrapeURLS(urls) {
 }
 
 app.post("/", async (req, res) => {
-
   console.log(req.body.message);
 
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY});
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
 
   try {
-
     var message = req.body.message;
-    
+
     const cURLS = containsValidURL(message);
 
     if (cURLS.length > 0) {
@@ -75,16 +75,11 @@ app.post("/", async (req, res) => {
     console.log(completion.choices[0].message.content);
 
     res.json(JSON.parse(completion.choices[0].message.content, null, 2));
-
   } catch (error) {
-
     console.error(error);
 
     res.status(500).json({ error: "An error occurred." });
-
   }
-
-
 });
 
 app.post("/editRundown", async (req, res) => {

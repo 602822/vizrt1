@@ -3,7 +3,7 @@ import React from 'react';
 import {ReactNode,createContext,useState} from 'react'
 
   
-import { MessageProps, StoryItemProp, UploadStatus } from '../types/globalTypes';
+import { MessageProps, StoryItemProp, UploadStatus, StoryProp } from '../types/globalTypes';
 import { generateUniqueId } from '../services/helperFunctions';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -18,6 +18,7 @@ interface ChatContextType {
   handleInputChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   isLoading: boolean;
   state: UploadStatus;
+  stories: StoryProp[]; 
 }
 
 
@@ -45,6 +46,8 @@ export function ChatContextProvider({children}: {children: ReactNode}){
   const [messages, setMessages] = useState<MessageProps[]>([]);
 
   const[items, setItems] = useState<StoryItemProp[]>([]);
+
+  const[stories, setStories] = useState<StoryProp[]>([]);
 
   const[title, setTitle] = useState<string>('');
 
@@ -106,7 +109,8 @@ export function ChatContextProvider({children}: {children: ReactNode}){
         setMessages([newMessage, ...messages]);
 
         messages.unshift(newMessage);
-        
+
+        setStories(data.stories);
 
         setItems(data.stories[0].items);
 
@@ -144,7 +148,8 @@ export function ChatContextProvider({children}: {children: ReactNode}){
         title,
         handleInputChange,
         isLoading,
-        state
+        state,
+        stories
       }}>
       {children}
     </ChatContext.Provider>

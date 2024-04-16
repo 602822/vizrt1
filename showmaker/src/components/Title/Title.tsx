@@ -11,7 +11,7 @@ export function Title({title}: {title: string}) {
 
   return (
 
-    <div className='w-full font-bold p-2 bg-gray-300 text-nowrap mt-1 h-10 truncate'>
+    <div className='w-full font-bold p-2 bg-gray-300 text-nowrap  h-10 truncate'>
         {title}
         </div>
   )

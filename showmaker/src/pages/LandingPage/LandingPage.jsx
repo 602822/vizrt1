@@ -25,24 +25,24 @@ export function LandingPage() {
 
     return (
         
-        <div className='relative w-full h-lvh'>
+        <div className='flex flex-col min-h-screen'>
 
-            <div className='flex flex-row justify-center items-center w-full h-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] fixed'><Header /></div>
+<div className='flex flex-row justify-center items-center h-10 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'><Header /></div>
 
-            <div className='w-full flex justify-center h-[80vh] pt-10'>
-                <div className='w-[15%] bg-gray-500 flex flex-col justify-start items-center truncate'>
+<div className='flex-grow flex justify-center'>
+                <div className='w-[15%] bg-gray-500 flex flex-col justify-start items-center truncate h-auto'>
 
-
+                
                     <Title title={title} />
                 </div>
 
                 
                 <div className='w-[70%]'><Rundwon /></div>
 
-                <div className='w-[15%] bg-gray-500 flex flex-col justify-center items-center'>
+                <div className='w-[15%] bg-gray-500 flex flex-col items-center'>
 
                 <button onClick={toggleChatbox} >
-                    <img src={logo} alt="image" className="w-20 h-20 rounded-full" />
+                    <img src={logo} alt="image" className="w-20 h-20 rounded-full mt-20 " />
                 </button>
 
                 </div>
@@ -54,7 +54,7 @@ export function LandingPage() {
             </div>
 
         
-            <div className='h-48 bg-zinc-800'>Footer</div>
+            <div className='h-40 bg-zinc-800 flex justify-center items-center'></div>
 
         </div>
 
